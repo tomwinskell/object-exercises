@@ -47,10 +47,24 @@ var customerData = {
   }
 };
 
-function greetCustomer(firstName) {
-  var greeting = '';
-  // your code here
+const greetings = {
+  unknown: "Welcome! Is this your first time?",
+  once: " We're glad you liked us the first time!",
+  more: " So glad to see you again!",
+}
 
+function greetCustomer(firstName) {
+  let greeting = '';
+  if (customerData[firstName]) {
+    greeting = `Welcome back, ${firstName}!`
+    console.log(customerData[firstName]['visits'])
+    customerData[firstName]['visits'] === 1 ? 
+    greeting = greeting + greetings.once : 
+    greeting = greeting + greetings.more ;
+
+  } else {
+    greeting = greetings.unknown;
+  }
   return greeting;
 }
 

@@ -22,5 +22,12 @@ Starter Code:
 */
 
 function convertObjectToList(obj) {
-  // your code here
+  const array = [];
+  for (const key in obj) {
+    const pairArray = [];
+    pairArray.push(key);
+    pairArray.push(obj[key]);
+    array.push(pairArray);
+  }
+  return array;
 }
